@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TextEncoder"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Преводчик морзе" Height="450" Width="600">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBox Margin="3" Name="TextInput" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto" TextChanged="TextInput_OnTextChanged" KeyUp="TextInput_OnKeyUp"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Margin="3" Content="Зашифровать в морзе" Click="ButtonBase_OnClick" Height="23" Name="Encrypt"/>
+            <Button Grid.Column="1" Margin="3" Content="Расшифровать из морзе" Click="ButtonBase_OnClick" Height="23" Name="Decipher"></Button>
+        </Grid>
+
+        <TextBox Grid.Row="2" Margin="3" Name="TextOutPut" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextChanged="TextOutPut_OnTextChanged1"/>
+        <Grid  Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Margin="3" Content="Стоп" Click="StopMorse" Height="23" />
+            <Button Grid.Column="1" Margin="3" Name="ButtonPlay" Content="Слушать" Click="PlayMorse" Height="23" IsEnabled="False"/>
+        </Grid>
     </Grid>
 </Window>

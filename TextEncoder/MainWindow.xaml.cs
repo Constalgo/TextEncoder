@@ -113,7 +113,7 @@ namespace TextEncoder
 
         private void Hyperlink_OnClick(object sender, RoutedEventArgs e)
         {
-            Process.Start(new ProcessStartInfo("http://constalgo.ru"));
+            Process.Start(new ProcessStartInfo("http://constalgo.ru/blog-trejdera/item/17-perevodchik-morze"));
         }
     }
 }

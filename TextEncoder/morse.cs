@@ -401,7 +401,7 @@ namespace TextEncoder
         public async Task PlayMorse(string textMorse)
         {
             cancelTokenSource = new CancellationTokenSource();
-            Task task1 = new Task(() =>
+            await Task.Factory.StartNew(() =>
             {
                 if (!IsMorse(textMorse))
                     throw new Exception("Код морзе содержит ошибки.");
@@ -428,9 +428,7 @@ namespace TextEncoder
                         return;
                     count++;
                 }
-            });
-            task1.Start();
-            await task1.ContinueWith(e=>
+            }).ContinueWith(e=>
             {
                 cancelTokenSource.Dispose();
                 cancelTokenSource = null;
